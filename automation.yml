@@ -1,38 +1,10 @@
 ---
-- name: Example Playbook
-  hosts: all  # Mencakup semua host yang ada dalam inventory
-  gather_facts: no  # Menonaktifkan pengumpulan informasi host
+- name: Ping Two Hosts
+  hosts: 
+    - server-networking
+    - ubuntu22:04-server
+  gather_facts: no
 
   tasks:
     - name: Ping Hosts
       ping:
-
-    - name: Display Linux Version
-      command: cat /etc/os-release
-      register: linux_version
-      become: yes
-      become_user: root
-      become_method: su
-      delegate_to: "{{ inventory_hostname }}"  # Menggunakan inventory_hostname untuk setiap host
-
-    - name: Display Linux Version Result
-      debug:
-        var: linux_version.stdout_lines
-
-    - name: Ping Server
-      ping:
-
-  # Mengatur variabel host dan kredensial untuk masing-masing host
-  vars:
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'  # Mengabaikan verifikasi kunci host
-    ansible_ssh_user:
-      192.168.18.101: server
-      192.168.18.102: server
-    ansible_ssh_pass:
-      192.168.18.101: server
-      192.168.18.102: server
-    ansible_ssh_port:
-      192.168.18.101: 22
-      192.168.18.102: 22000
-
-# Menggunakan dynamic inventory untuk mengatur host
