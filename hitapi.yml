@@ -10,4 +10,4 @@
 
     - name: Display API Response
       debug:
-        var: api_respons
+        var: api_response
