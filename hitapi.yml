@@ -1,0 +1,13 @@
+- name: Send HTTP GET Request to an API
+  hosts: localhost
+  tasks:
+    - name: Make API GET Request
+      uri:
+        url: "https://jsonplaceholder.typicode.com/posts/1"  # Ganti dengan URL API yang sesuai
+        method: GET
+        status_code: 200  # Kode status yang diharapkan dari respons API
+      register: api_response
+
+    - name: Display API Response
+      debug:
+        var: api_respons
