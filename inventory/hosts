@@ -1,0 +1,20 @@
+{
+  "all":{
+    "hosts":{
+        "192.168.1.101":{
+            "hostname": "server",
+            "port" : 22
+        },
+        "192.168.1.102":{
+            "hostname":"server",
+            "port" : 22
+        }
+    },
+    "vars":{
+        "ansible_ssh_user" : "server",
+        "ansible_ssh_pass" : "server"
+    }
+  },
+
+  "_meta":{}
+}
