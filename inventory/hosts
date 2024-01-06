@@ -8,6 +8,10 @@
       "192.168.1.102": {
         "hostname": "server",
         "port": 22
+      },
+      "192.168.1.104": {
+        "hostname": "server",
+        "port": 22
       }
     },
     "vars": {
